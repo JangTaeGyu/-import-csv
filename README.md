@@ -26,7 +26,7 @@
 
 ### Multi thread
 
-- **Thread count**: 10
+- **Thread pool**: 10
 - **Batch size**: 1,000
 
 |            | 1회       | 2회       | 3회       | 4회       | 5회       |
