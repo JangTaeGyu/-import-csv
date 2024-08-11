@@ -10,13 +10,12 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class SingleThreadedSaver implements Saver {
+public class SingleThreadedSaver {
     private final CsvLoader csvLoader;
     private final DummyUserRepository dummyUserRepository;
 
-    @Override
     public void save(String file) {
-        List<DummyUser> users = csvLoader.load("data.csv", DummyUserMapper::toEntity);
+        List<DummyUser> users = csvLoader.load(file, DummyUserMapper::toEntity);
 
         TimeTracker.track(() -> {
             users.forEach(dummyUserRepository::save);
@@ -24,9 +23,8 @@ public class SingleThreadedSaver implements Saver {
     }
 
     @Transactional
-    @Override
     public void saveTransaction(String file) {
-        List<DummyUser> users = csvLoader.load("data.csv", DummyUserMapper::toEntity);
+        List<DummyUser> users = csvLoader.load(file, DummyUserMapper::toEntity);
 
         TimeTracker.track(() -> {
             users.forEach(dummyUserRepository::save);
