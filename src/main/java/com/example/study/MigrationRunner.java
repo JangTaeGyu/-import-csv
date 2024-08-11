@@ -14,8 +14,8 @@ public class MigrationRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        singleThreadedSaver.save("data.csv");
-        // singleThreadedSaver.saveTransaction("data.csv");
+        // singleThreadedSaver.save("data.csv");
+        singleThreadedSaver.saveTransaction("data.csv");
         // multiThreadedSaver.save("data.csv", 1000);
     }
 }
