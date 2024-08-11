@@ -2,6 +2,7 @@ package com.example.study.domain;
 
 import com.example.study.support.CsvLoader;
 import com.example.study.support.TimeTracker;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -56,7 +57,8 @@ public class MultiThreadedSaver {
         });
     }
 
-    public void saveTransaction(String file) {
+    @Transactional
+    public void saveTransaction(String file, int batchSize) {
 
     }
 }
