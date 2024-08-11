@@ -1,16 +1,15 @@
 package com.example.study.domain;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Getter
-@EqualsAndHashCode(of = "id")
-@Entity
-@Table(name = "dummy_users")
+@Getter @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity @Table(name = "dummy_users")
 public class DummyUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +39,6 @@ public class DummyUser {
             String gender,
             LocalDateTime createdAt
     ) {
-        this.id = id;
         this.email = email;
         this.name = name;
         this.address = address;
