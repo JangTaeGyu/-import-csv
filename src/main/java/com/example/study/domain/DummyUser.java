@@ -31,7 +31,6 @@ public class DummyUser {
     private LocalDateTime updatedAt;
 
     public DummyUser(
-            Long id,
             String email,
             String name,
             String address,
